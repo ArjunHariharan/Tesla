@@ -1,0 +1,55 @@
+﻿<Page x:Class="Tesla.NewUser"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      mc:Ignorable="d" 
+      d:DesignHeight="490" d:DesignWidth="790"
+	Title="NewUser">
+
+    <Page.Resources>
+        <Style x:Key="OptionStyle" TargetType="{x:Type RadioButton}">
+            <Setter Property="Margin" Value="20,5,20,5"/>
+            <Setter Property="Width" Value="auto" />
+            <Setter Property="HorizontalAlignment" Value="Stretch"/>
+            <Setter Property="Height" Value="30" />
+            <Setter Property="FontSize" Value="15" />
+            <Setter Property="VerticalContentAlignment" Value="Center" />
+        </Style>
+    </Page.Resources>
+    <Grid>
+        <Label Content="First Name" HorizontalAlignment="Left" Margin="140,92,0,0" VerticalAlignment="Top"/>
+        <Label Content="Last Name" HorizontalAlignment="Left" Margin="411,94,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="FirstNameBox" HorizontalAlignment="Left" Height="23" Margin="247,96,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="LastNameBox" HorizontalAlignment="Left" Height="23" Margin="525,98,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Mobile" HorizontalAlignment="Left" Margin="140,144,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="MobileBox" HorizontalAlignment="Left" Height="23" Margin="247,147,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Emailid" HorizontalAlignment="Left" Margin="411,147,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="EmailBox" HorizontalAlignment="Left" Height="23" Margin="525,156,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <StackPanel x:Name="OperationPanel" HorizontalAlignment="Center" Height="40" Margin="0,25,0,0" VerticalAlignment="Top" Width="Auto" Orientation="Horizontal">
+            <RadioButton Content="New User" Style="{DynamicResource OptionStyle}"/>
+            <RadioButton Content="Search" Style="{DynamicResource OptionStyle}"/>
+            <RadioButton Content="Add/Change Role" Style="{DynamicResource OptionStyle}"/>
+        </StackPanel>
+        <StackPanel x:Name="RolePanel" HorizontalAlignment="Center" Height="40" Margin="156,210,156,0" VerticalAlignment="Top" Width="Auto" Orientation="Horizontal">
+            <Label Content="Role" HorizontalAlignment="Left" Margin="0,5,20,0" VerticalAlignment="Top"/>
+            <RadioButton Content="Database Team" Style="{DynamicResource OptionStyle}" Padding="4,0,0,0" VerticalContentAlignment="Center"/>
+            <RadioButton Content="Core Team" Style="{DynamicResource OptionStyle}"/>
+            <RadioButton Content="Event Head" Style="{DynamicResource OptionStyle}"/>
+        </StackPanel>
+    </Grid>
+</Page>
+
+
+
+<DataGrid x:Name="UserGrid" HorizontalAlignment="Center" Margin="91,250,91,0" VerticalAlignment="Top" Height="150" Width="Auto" HorizontalScrollBarVisibility="Disabled" IsReadOnly="True">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" Header="First Name" MinWidth="90"/>
+                        <DataGridCheckBoxColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" Header="Last Name" MinWidth="90"/>
+                        <DataGridCheckBoxColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" Header="Mobile" MinWidth="70"/>
+                        <DataGridCheckBoxColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" Header="Email id" MinWidth="80"/>
+                        <DataGridCheckBoxColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" Header="Role" MinWidth="70"/>
+                        <DataGridCheckBoxColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" Header="User Name" MinWidth="100"/>
+                        <DataGridCheckBoxColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" Header="Password" MinWidth="100"/>
+                    </DataGrid.Columns>
+                </DataGrid>

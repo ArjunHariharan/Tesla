@@ -1,0 +1,86 @@
+﻿<Page x:Class="Tesla.NewUser"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      mc:Ignorable="d" 
+      d:DesignHeight="490" d:DesignWidth="790"
+	Title="NewUser">
+    <Page.Resources>
+        <Style x:Key="TabItemStyle" TargetType="{x:Type TabItem}">
+            <Setter Property="Padding" Value="25,0,25,0"></Setter>
+            <Setter Property="Width" Value="auto" />
+            <Setter Property="HorizontalAlignment" Value="Stretch"/>
+            <Setter Property="Height" Value="30" />
+            <Setter Property="FontSize" Value="15" />
+            <Setter Property="VerticalContentAlignment" Value="Center" />
+        </Style>
+
+        <Style x:Key="OptionStyle" TargetType="{x:Type RadioButton}">
+            <Setter Property="Margin" Value="20,5,20,5"/>
+            <Setter Property="Width" Value="auto" />
+            <Setter Property="HorizontalAlignment" Value="Stretch"/>
+            <Setter Property="Height" Value="30" />
+            <Setter Property="FontSize" Value="15" />
+            <Setter Property="VerticalContentAlignment" Value="Center" />
+        </Style>
+    </Page.Resources>
+
+
+
+    <TabControl HorizontalAlignment="Stretch" Height="auto" Margin="0,0,0,0" VerticalAlignment="Stretch" Width="auto">
+        <TabItem x:Name="UserTab" Header="New User" Style="{DynamicResource TabItemStyle}" >
+            <Grid Height="456">
+                <Label Content="First Name" HorizontalAlignment="Left" Margin="140,26,0,0" VerticalAlignment="Top"/>
+                <Label Content="Last Name" HorizontalAlignment="Left" Margin="411,26,0,0" VerticalAlignment="Top"/>
+                <TextBox x:Name="FirstNameBox" HorizontalAlignment="Left" Height="23" Margin="247,33,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+                <TextBox x:Name="LastNameBox" HorizontalAlignment="Left" Height="23" Margin="525,33,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+                <Label Content="Mobile" HorizontalAlignment="Left" Margin="140,80,0,0" VerticalAlignment="Top"/>
+                <TextBox x:Name="MobileBox" HorizontalAlignment="Left" Height="23" Margin="247,80,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+                <Label Content="Emailid" HorizontalAlignment="Left" Margin="411,80,0,0" VerticalAlignment="Top"/>
+                <TextBox x:Name="EmailBox" HorizontalAlignment="Left" Height="23" Margin="525,80,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+
+                <Label Content="Role" HorizontalAlignment="Left" Margin="111,136,0,0" VerticalAlignment="Top"/>
+
+                <StackPanel x:Name="RolePanel" HorizontalAlignment="Center" Height="40" Margin="60,130,0,0" VerticalAlignment="Top" Width="Auto" Orientation="Horizontal">
+                    <RadioButton Content="Database Team" Style="{DynamicResource OptionStyle}" Padding="4,0,0,0" VerticalContentAlignment="Center" Tag="2"/>
+                    <RadioButton Content="Core Team" Style="{DynamicResource OptionStyle}" Tag="3"/>
+                    <RadioButton Content="Finance" Style="{DynamicResource OptionStyle}" Tag="4"/>
+                    <RadioButton Content="Event Head" Style="{DynamicResource OptionStyle}" Tag="5"/>
+                </StackPanel>
+                <Button x:Name="AddUserButton" Content="Create Account" HorizontalAlignment="Center" Margin="264,200,398,0" Padding="10,5,10,5" VerticalAlignment="Top" Width="Auto" Click="AddUserButton_Click"/>
+                <Button x:Name="ClearButton" Content="Clear Data" HorizontalAlignment="Center" Margin="449,200,235,0" Padding="10,5,10,5" VerticalAlignment="Top" Width="auto" Click="ClearButton_Click"/>
+                <DataGrid x:Name="UserGrid" HorizontalAlignment="Center" Margin="91,250,89,0" VerticalAlignment="Top" Height="150" Width="Auto" IsReadOnly="True">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Binding="{Binding Path=Fname}" ClipboardContentBinding="{x:Null}" Header="First Name" MinWidth="90"/>
+                        <DataGridTextColumn Binding="{Binding Path=Lname}" ClipboardContentBinding="{x:Null}" Header="Last Name" MinWidth="90"/>
+                        <DataGridTextColumn Binding="{Binding Path=Mobile}" ClipboardContentBinding="{x:Null}" Header="Mobile" MinWidth="70"/>
+                        <DataGridTextColumn Binding="{Binding Path=Email}" ClipboardContentBinding="{x:Null}" Header="Email id" MinWidth="80"/>
+                        <DataGridTextColumn Binding="{Binding Path=Role}" ClipboardContentBinding="{x:Null}" Header="Role" MinWidth="70"/>
+                        <DataGridTextColumn Binding="{Binding Path=UserName}" ClipboardContentBinding="{x:Null}" Header="User Name" MinWidth="100"/>
+                        <DataGridTextColumn Binding="{Binding Path=Password}" ClipboardContentBinding="{x:Null}" Header="Password" MinWidth="100"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+
+            </Grid>
+        </TabItem>
+
+        <TabItem Header="Add/Change Event Head" Style="{DynamicResource TabItemStyle}">
+            <Grid Height="456">
+                <Label Content="Name" HorizontalAlignment="Left" Margin="242,30,0,0" VerticalAlignment="Top"/>
+                <TextBox x:Name="NameBox" HorizontalAlignment="Left" Height="23" Margin="344,37,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="158"/>
+                <Button x:Name="SearchButton" Content="Search" HorizontalAlignment="Left" Margin="292,81,0,0" VerticalAlignment="Top" Width="75" Click="SearchButton_Click" />
+                <ListBox x:Name="NameListBox" HorizontalAlignment="Left" Height="177" Margin="71,174,0,0" VerticalAlignment="Top" Width="179" SelectionChanged="NameListBox_SelectionChanged"/>
+                <ListBox HorizontalAlignment="Left" Height="177" Margin="458,174,0,0" VerticalAlignment="Top" Width="224" SelectionMode="Multiple"/>
+                <Button x:Name="SaveButton" Content="Save" HorizontalAlignment="Left" Margin="308,372,0,0" VerticalAlignment="Top" Width="75"/>
+                <Label Content="Select User" HorizontalAlignment="Left" Margin="119,146,0,0" VerticalAlignment="Top"/>
+                <Label Content="Select Role" HorizontalAlignment="Left" Margin="513,121,0,0" VerticalAlignment="Top"/>
+                <Label Content="ctrl + mouse click for multiple selection" HorizontalAlignment="Left" Margin="436,146,0,0" VerticalAlignment="Top"/>
+
+            </Grid>
+        </TabItem>
+    </TabControl>
+
+
+
+</Page>
